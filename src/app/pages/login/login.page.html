@@ -1,0 +1,32 @@
+<ion-content padding>
+  <div class="login-logo">
+    <img src="assets/img/logo.png" alt="App logo">
+  </div>
+  <div class="welcometext">
+    <h5 style="text-align: center; color: #6a64ff; font-weight: bold">Connectez-vous maintenant</h5>
+    <p style="text-align: center; font-size: smaller; color: #989aa2;">Connectez-vous pour continuer à utiliser notre
+      application</p>
+  </div>
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <div class="ion-padding">
+      <ion-checkbox color="medium" class="ion-float-start"></ion-checkbox>
+      <ion-label color="medium" class="ion-float-start">Souvenez-Moi</ion-label>
+      <a class="ion-float-end">Mot de passe oublié!</a>
+    </div>
+    <div class="ion-padding">
+      <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Connexion</ion-button>
+      <p style="text-align: center;">Vous n'avez pas de compte? <a (click)="goToRegisterPage()">S'inscrire</a></p>
+    </div>
+  </form>
+</ion-content>

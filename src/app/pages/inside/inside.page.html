@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Espace Selfcare</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  Bienvenue a l'interieur de votre espace selfcare!
+  <p>{{ data }}</p>
+ 
+  <ion-button expand="full" (click)="loadSpecialInfo()">Voir Profile</ion-button>
+  <ion-button expand="full" (click)="logout()">Deconnexion</ion-button>
+ 
+</ion-content>

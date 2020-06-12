@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <ion-content margin class="ion-padding">
+        <form [formGroup]="slideOneForm">
+          <ion-radio-group formControlName='sexe'>
+            <ion-label>Vous etes ?</ion-label>
+            <ion-item no-lines>
+              <ion-radio value="homme"></ion-radio>
+              <ion-label floating color="primary">homme</ion-label>
+              <ion-radio value="femme"></ion-radio>
+              <ion-label floating color="primary">femme</ion-label>
+            </ion-item>
+          </ion-radio-group>
+          <ion-item>
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input formControlName='nom' type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Prenom</ion-label>
+            <ion-input formControlName='prenom' type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Date de naissance</ion-label>
+            <ion-datetime class="open_picker" formControlName='dateDeNaissance' displayFormat="DD/MM/YYYY"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Situation Familialle</ion-label>
+            <ion-select formControlName='situationFamilialle' cancelText="Annuler">
+              <ion-select-option>Single</ion-select-option>
+              <ion-select-option>Married</ion-select-option>
+              <ion-select-option>Divorced</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </form>
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <form [formGroup]="slideTwoForm">
+          <ion-item>
+            <ion-label position="floating">CIN</ion-label>
+            <ion-input  formControlName='cin' type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Date d'experation CIN</ion-label>
+            <ion-datetime class="open_picker" formControlName='dateExperationCIN' displayFormat="DD/MM/YYYY"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Telephone Mobile</ion-label>
+            <ion-input formControlName='telephoneMobile' type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Telephone supplementaire</ion-label>
+            <ion-input  formControlName='telephoneSupp' type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Telephone Domicile</ion-label>
+            <ion-input formControlName='telephoneDomicile' type="text"></ion-input>
+          </ion-item>
+        </form>
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content>
+        <form [formGroup]="slideThreeForm" (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-label position="floating">email</ion-label>
+            <ion-input formControlName='email' type="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">ville</ion-label>
+            <ion-input formControlName='ville' type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">code postale</ion-label>
+            <ion-input formControlName='codePostale' type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Adresse</ion-label>
+            <ion-textarea formControlName='adresse' type="text"></ion-textarea>
+          </ion-item>
+          <ion-button expand="full" type="submit" color="primary">Envoyer</ion-button>
+          <ion-button expand="full" (click)="goToLoginPage()" color="primary">Retour au page d'inscription</ion-button>
+        </form>
+      </ion-content>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
