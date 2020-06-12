@@ -18,6 +18,7 @@ export class RegisterPage implements OnInit {
   slideOneForm : FormGroup;
   slideTwoForm : FormGroup;
   slideThreeForm : FormGroup;
+  password :string = this.generatePassword();
 
   constructor(private navCtrl : NavController, private formBuilder: FormBuilder, private authService : AuthService, private alertController : AlertController ) { }
 
@@ -45,18 +46,27 @@ export class RegisterPage implements OnInit {
   }
 
   onSubmit(){
-    let newUserInfos = {...this.slideOneForm.value, ...this.slideTwoForm.value, ...this.slideThreeForm.value}
-    console.log(newUserInfos);
+    let newUserInfos = {...this.slideOneForm.value, ...this.slideTwoForm.value, ...this.slideThreeForm.value, password : this.password}
+    console.log(newUserInfos)
     this.authService.register(newUserInfos).subscribe(res => {
       this.showAlert(res);
       
     })
     
   }
+  generatePassword() {
+    var length = 6,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
    
   showAlert(msg) {
     let alert = this.alertController.create({
-      message: 'thanks '+ msg.nom +' '+ msg.prenom +' Your demande is registred wait for our call ',
+      message: 'Thanks '+ msg.nom +' '+ msg.prenom +' Your demande is registred wait for our call. '+ ' To login use this password :  ' + this.password,
       header: 'Success',
       buttons: ['OK']
     });

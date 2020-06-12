@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://selfcareapi.herokuapp.com/'
+  url: 'https://selfcareapi.herokuapp.com'
 };
 
 
