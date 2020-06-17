@@ -1,0 +1,25 @@
+<ion-header no-shadow>
+  <ion-toolbar style="border-bottom-left-radius: 100%; border-bottom-right-radius: 100%;height: 30%;" color="primary">
+  </ion-toolbar>
+  <img style="border-radius: 100%;position: relative;" class="logo" src="../../../assets/img/logo.png">
+  <h5 style="text-align: center; color: #3d71b5; font-weight: bold; margin: 0;">{{titre | uppercase}}</h5>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>Bonjour</ion-card-header>
+    <ion-button expand="full"  color="primary">
+      <ion-icon name="person-circle-outline"></ion-icon>Voir Profile
+    </ion-button>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>Nous Contacter</ion-card-header>
+    <ion-button expand="full"  color="primary">
+      <ion-icon name="call-outline"></ion-icon>N Eco : 810 000 003
+    </ion-button>
+  </ion-card>
+  <br><br><br>
+  <ion-button class="ion-padding" expand="full" (click)="logout()" color="tertiary">
+    <ion-icon name="power-outline"></ion-icon>Deconnexion
+  </ion-button>
+</ion-content>

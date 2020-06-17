@@ -1,66 +1,79 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>register</ion-title>
+<ion-header no-shadow>
+  <ion-toolbar style="border-bottom-left-radius: 100%; border-bottom-right-radius: 100%;height: 30%;" color="primary">
   </ion-toolbar>
+  <img style="border-radius: 100%;position: relative;" class="logo" src="../../../assets/img/logo.png" >
+  <div class="div">
+    <h5 style="text-align: center; color: #3d71b5; font-weight: bold">Ouvrir votre compte chez Al Amana</h5>
+    <p style="text-align: center; font-size: smaller; color: #989aa2;">remplir tous les champs pour creer un compte de credit</p>
+  </div>
 </ion-header>
 
-
-<ion-content>
+<ion-content no-shadow>
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide>
-      <ion-content margin class="ion-padding">
-        <form [formGroup]="slideOneForm">
+      <ion-content margin padding>
+        <form [formGroup]="slideOneForm" padding margin>
+          <br>
           <ion-radio-group formControlName='sexe'>
             <ion-label>Vous etes ?</ion-label>
-            <ion-item no-lines>
+            <ion-item no-lines >
               <ion-radio value="homme"></ion-radio>
-              <ion-label floating color="primary">homme</ion-label>
+              <ion-label floating color="primary"><ion-icon name="man-sharp"></ion-icon>Homme</ion-label>
               <ion-radio value="femme"></ion-radio>
-              <ion-label floating color="primary">femme</ion-label>
+              <ion-label floating color="primary"><ion-icon name="woman-sharp"></ion-icon>Femme</ion-label>
             </ion-item>
           </ion-radio-group>
+          <br>
           <ion-item>
             <ion-label position="floating">Nom</ion-label>
             <ion-input formControlName='nom' type="text"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Prenom</ion-label>
             <ion-input formControlName='prenom' type="text"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Date de naissance</ion-label>
             <ion-datetime class="open_picker" formControlName='dateDeNaissance' displayFormat="DD/MM/YYYY"></ion-datetime>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Situation Familialle</ion-label>
             <ion-select formControlName='situationFamilialle' cancelText="Annuler">
-              <ion-select-option>Single</ion-select-option>
-              <ion-select-option>Married</ion-select-option>
-              <ion-select-option>Divorced</ion-select-option>
+              <ion-select-option>célibataire</ion-select-option>
+              <ion-select-option>marié(e)</ion-select-option>
+              <ion-select-option>divorcé(e)</ion-select-option>
             </ion-select>
           </ion-item>
         </form>
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
-        <form [formGroup]="slideTwoForm">
+      <ion-content padding margin>
+        <form [formGroup]="slideTwoForm" padding margin>
+          <br>
           <ion-item>
             <ion-label position="floating">CIN</ion-label>
             <ion-input  formControlName='cin' type="text"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Date d'experation CIN</ion-label>
-            <ion-datetime class="open_picker" formControlName='dateExperationCIN' displayFormat="DD/MM/YYYY"></ion-datetime>
+            <ion-datetime class="open_picker" pickerOptions={{pickerOptions}} formControlName='dateExperationCIN' max='2060' min="2020" displayFormat="DD/MM/YYYY"></ion-datetime>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Telephone Mobile</ion-label>
             <ion-input formControlName='telephoneMobile' type="text"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Telephone supplementaire</ion-label>
             <ion-input  formControlName='telephoneSupp' type="text"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Telephone Domicile</ion-label>
             <ion-input formControlName='telephoneDomicile' type="text"></ion-input>
@@ -69,24 +82,29 @@
       </ion-content>
     </ion-slide>
     <ion-slide>
-      <ion-content>
-        <form [formGroup]="slideThreeForm" (ngSubmit)="onSubmit()">
+      <ion-content padding margin>
+        <form [formGroup]="slideThreeForm" (ngSubmit)="onSubmit()" padding margin>
+          <br>
           <ion-item>
-            <ion-label position="floating">email</ion-label>
+            <ion-label position="floating">Email</ion-label>
             <ion-input formControlName='email' type="email"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
-            <ion-label position="floating">ville</ion-label>
+            <ion-label position="floating">Ville</ion-label>
             <ion-input formControlName='ville' type="text"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
-            <ion-label position="floating">code postale</ion-label>
+            <ion-label position="floating">Code postale</ion-label>
             <ion-input formControlName='codePostale' type="text"></ion-input>
           </ion-item>
+          <br>
           <ion-item>
             <ion-label position="floating">Adresse</ion-label>
             <ion-textarea formControlName='adresse' type="text"></ion-textarea>
           </ion-item>
+          <br>
           <ion-button expand="full" type="submit" color="primary">Envoyer</ion-button>
           <ion-button expand="full" (click)="goToLoginPage()" color="primary">Retour au page d'inscription</ion-button>
         </form>

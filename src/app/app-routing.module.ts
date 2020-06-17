@@ -13,14 +13,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'inside',
-    loadChildren: () => import('./pages/inside/inside.module').then( m => m.InsidePageModule),
-    canActivate: [AuthGuardService]
-  },
-  {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
+    canActivate:[AuthGuardService]
+  },
+
 ];
 
 @NgModule({

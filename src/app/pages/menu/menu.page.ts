@@ -2,31 +2,22 @@ import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
- 
+
+
 @Component({
-  selector: 'app-inside',
-  templateUrl: './inside.page.html',
-  styleUrls: ['./inside.page.scss'],
+  selector: 'app-menu',
+  templateUrl: './menu.page.html',
+  styleUrls: ['./menu.page.scss'],
 })
-export class InsidePage implements OnInit {
- 
+export class MenuPage implements OnInit {
+
   data = '';
+  titre="acceuil"
  
   constructor(private authService: AuthService, private storage: Storage, private toastController: ToastController) { }
  
   ngOnInit() {
   }
- 
-  loadSpecialInfo() {
-    this.authService.getSpecialData().subscribe(res => {
-      this.data = res['msg'];
-    });
-  }
- 
-  logout() {
-    this.authService.logout();
-  }
- 
   clearToken() {
     // ONLY FOR TESTING!
     this.storage.remove('access_token');

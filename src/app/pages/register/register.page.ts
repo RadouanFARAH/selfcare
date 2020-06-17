@@ -9,7 +9,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  
+  pickerOptions = {
+    backdropDismiss:false
+  }
   slideOpts = {
     initialSlide: 0,
     speed: 400
@@ -73,7 +75,7 @@ export class RegisterPage implements OnInit {
     alert.then(alert => {alert.present(); this.navCtrl.navigateRoot('login')});
   }
   goToLoginPage(){
-    this.navCtrl.navigateRoot('login')
+    this.navCtrl.navigateRoot('login');
   }
 
 }
