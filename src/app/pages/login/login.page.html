@@ -16,7 +16,12 @@
     <br>
     <ion-item padding >
       <ion-label position="floating"><ion-icon name="lock-open-outline"></ion-icon>Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-grid style="margin: 0 !important; width: 100% !important;">
+        <ion-row>
+          <ion-input [type]="passwordType" formControlName="password" clearOnEdit="false"></ion-input>
+          <ion-icon class="floatIcon" [name]="passwordIcon" (click)="hideShowPassword()"></ion-icon>
+        </ion-row>
+      </ion-grid>
     </ion-item>
     <br>
     <div class="forget-password" style="text-align: center; align-items: center;" >

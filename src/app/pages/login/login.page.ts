@@ -11,6 +11,8 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
+  passwordType : String = "password";
+  passwordIcon : String = "eye-off";
   registerPage : RegisterPage;
   credentialsForm: FormGroup;
  
@@ -21,6 +23,10 @@ export class LoginPage implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+  hideShowPassword(){
+    this.passwordType = this.passwordType === "text" ? "password" : "text";
+    this.passwordIcon = this.passwordIcon === "eye" ? "eye-off" : "eye";
   }
  
   onSubmit() {
